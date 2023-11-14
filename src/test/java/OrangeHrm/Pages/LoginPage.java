@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.SQLException;
+
 //Clase
 public class LoginPage {
 
@@ -31,9 +33,10 @@ public class LoginPage {
     }
 
     //Metodo
-    public void fillOutLogin(String userName, String password){
+    public void fillOutLogin(String userName, String password) throws SQLException {
         this.inputuser.sendKeys(userName);
         this.inputpass.sendKeys(password);
+        //this.consulDataBase.consultUser();
         this.buttonPages.btnLogin();
         this.questions.timeSeconds(2);
         this.questions.screenShot();
